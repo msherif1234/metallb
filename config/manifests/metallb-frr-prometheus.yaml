@@ -1826,7 +1826,7 @@ data:
   frr.conf: |
     ! This file gets overriden the first time the speaker renders a config.
     ! So anything configured here is only temporary.
-    frr version 7.5.1
+    frr version 8.4.0
     frr defaults traditional
     hostname Router
     line vty
@@ -2099,7 +2099,7 @@ spec:
         env:
         - name: TINI_SUBREAPER
           value: "true"
-        image: frrouting/frr:v7.5.1
+        image: frrouting/frr:v8.4.0
         name: frr
         securityContext:
           capabilities:
@@ -2115,7 +2115,7 @@ spec:
           name: frr-conf
       - command:
         - /etc/frr_reloader/frr-reloader.sh
-        image: frrouting/frr:v7.5.1
+        image: frrouting/frr:v8.4.0
         name: reloader
         volumeMounts:
         - mountPath: /var/run/frr
@@ -2128,7 +2128,7 @@ spec:
         - --metrics-port=7473
         command:
         - /etc/frr_metrics/frr-metrics
-        image: frrouting/frr:v7.5.1
+        image: frrouting/frr:v8.4.0
         name: frr-metrics
         ports:
         - containerPort: 7473
@@ -2214,7 +2214,7 @@ spec:
         - /bin/sh
         - -c
         - cp -rLf /tmp/frr/* /etc/frr/
-        image: frrouting/frr:v7.5.1
+        image: frrouting/frr:v8.4.0
         name: cp-frr-files
         securityContext:
           runAsGroup: 101
